@@ -7,12 +7,12 @@ import java.util.List;
 class Tree {
     private Node root;
 
-    // Constructor
+    
     public Tree() {
         this.root = null;
     }
 
-    // Menambahkan node baru ke tree
+    
     public boolean add(char key) {
         if (root == null) {
             root = new Node(key);
@@ -37,14 +37,14 @@ class Tree {
                 return addRec(current.getRight(), key);
             }
         }
-        return false; // key sudah ada
+        return false; 
     }
 
-    // Menghapus node dari tree
+    
     public boolean remove(char key) {
         if (!isExist(key)) {
             System.out.println("Node dengan key '" + key + "' tidak ditemukan di tree.");
-            return false; // Jika elemen tidak ditemukan, return false
+            return false; 
         }
         root = removeRec(root, key);
         System.out.println("Node dengan key '" + key + "' berhasil dihapus.");
@@ -59,11 +59,11 @@ class Tree {
         } else if (key > root.getKey()) {
             root.setRight(removeRec(root.getRight(), key));
         } else {
-            // Node dengan satu atau tidak ada anak
+            
             if (root.getLeft() == null) return root.getRight();
             else if (root.getRight() == null) return root.getLeft();
 
-            // Node dengan dua anak
+            
             Node minRightNode = minValue(root.getRight());
             root.setKey(minRightNode.getKey());
             root.setRight(removeRec(root.getRight(), minRightNode.getKey()));
@@ -76,7 +76,7 @@ class Tree {
         return node;
     }
 
-    // Mengecek apakah sebuah key ada di tree
+   
     public boolean isExist(char key) {
         return isExistRec(root, key);
     }
@@ -87,7 +87,7 @@ class Tree {
         return key < current.getKey() ? isExistRec(current.getLeft(), key) : isExistRec(current.getRight(), key);
     }
 
-    // Traversal Inorder
+    
     public void inorder() {
         System.out.print("Inorder traversal: ");
         inorderRec(root);
@@ -102,7 +102,7 @@ class Tree {
         }
     }
 
-    // Traversal Preorder
+    
     public void preorder() {
         System.out.print("Preorder traversal: ");
         preorderRec(root);
@@ -117,7 +117,7 @@ class Tree {
         }
     }
 
-    // Traversal Postorder
+    
     public void postorder() {
         System.out.print("Postorder traversal: ");
         postorderRec(root);
@@ -132,7 +132,7 @@ class Tree {
         }
     }
     public void printTreePretty() {
-        int maxLevel = maxDepth(root); // Hitung kedalaman maksimum dari tree
+        int maxLevel = maxDepth(root); 
         printNodeInternal(Collections.singletonList(root), 1, maxLevel);
     }
 
