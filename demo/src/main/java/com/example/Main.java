@@ -3,14 +3,12 @@ package com.example;
 public class Main {
     public static void main(String[] args) {
         Tree bst = new Tree();
-
-
-        
+           
         System.out.println("Angka-angka yang dimasukkan ke dalam Tree:");
         bst.add('5'); 
         bst.add('3');
         bst.add('7');
-        // bst.add('2');
+        bst.add('2');
         bst.add('4');
         bst.add('6');
         bst.add('8');
@@ -21,7 +19,16 @@ public class Main {
         bst.printTreePretty();
 
         bst.remove('2');
+        bst.remove('2');
+
+        bst.printTreePretty();
+
+        bst.add('2');
        
+
+        bst.printTreePretty();
+
+        bst.add('2');
 
         bst.printTreePretty();
         

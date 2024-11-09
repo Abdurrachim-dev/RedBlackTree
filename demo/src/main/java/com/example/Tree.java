@@ -16,8 +16,10 @@ class Tree {
     public boolean add(char key) {
         if (root == null) {
             root = new Node(key);
+            System.out.println("root dengan angka" + key + "telah ditambahkan");
             return true;
         }
+        System.out.println("anakan dengan angka" + key + "telah ditambahkan");
         return addRec(root, key);
     }
 
